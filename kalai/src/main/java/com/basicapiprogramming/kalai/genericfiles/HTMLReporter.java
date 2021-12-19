@@ -101,11 +101,25 @@ public class HTMLReporter {
 	protected static void reportLog(String desc, String json, Status status) {
 		Markup markup = MarkupHelper.createCodeBlock(json, CodeLanguage.JSON);
 		switch(status) {
-		case PASS : tlNode.get().pass(markup); break;
-		case FAIL : tlNode.get().fail(markup); break;
-		case WARNING : tlNode.get().warning(markup); break;
-		case SKIP : tlNode.get().skip(markup); break;
-		default : tlNode.get().info(markup);
+		case PASS :
+			tlNode.get().info(desc);
+			tlNode.get().pass(markup); 
+			break;
+		case FAIL : 
+			tlNode.get().info(desc);
+			tlNode.get().fail(markup); 
+			break;
+		case WARNING : 
+			tlNode.get().info(desc);
+			tlNode.get().warning(markup); 
+			break;
+		case SKIP : 
+			tlNode.get().info(desc);
+			tlNode.get().skip(markup); 
+			break;
+		default : 
+			tlNode.get().info(desc);
+			tlNode.get().info(markup);
 		}
 	}
 }

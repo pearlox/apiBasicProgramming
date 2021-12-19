@@ -2,7 +2,6 @@ package com.basicapiprogramming.kalai.genericfiles;
 
 import java.util.Properties;
 
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
@@ -59,7 +58,6 @@ public class TestNGHooks extends HTMLReporter {
 	@BeforeMethod
 	public void beforeMethod() {
 		startTestCase(this.getClass().getSimpleName(), testDescription);
-		startTestModule(nodes,category,author);
 		properties = Settings.getInstance();
 	}
 }
